@@ -1,25 +1,5 @@
-class Door {
-    private isOpen: boolean;
-
-    constructor(isOpen: boolean) {
-        this.isOpen = isOpen;
-    }
-}
-
-class HundredDoors {
-    private readonly doors: Door[];
-
-    constructor() {
-        this.doors = [];
-        for (let i = 0; i < 100; i++) {
-            this.doors.push(new Door(false));
-        }
-    };
-
-    visit = (times: number): Door[] => {
-        return this.doors;
-    };
-}
+import {Door} from "../src/Door";
+import {HundredDoors} from "../src/HundredDoors";
 
 test('100 closed doors', () => {
     const hundredClosedDoors: Door[] = [];
