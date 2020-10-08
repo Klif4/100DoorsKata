@@ -1,0 +1,27 @@
+{
+  "name": "100doorskata",
+  "version": "1.0.0",
+  "description": "## The kata There are 100 doors in a row that are all closed. You make 100 passes through the doors. With each pass you toggle the doors state. On each pass you visit the Nth door. That is on the first pass you visit every door. On the second pass you visit every 2nd door. On the third pass you visit every 3rd door and so on until you complete the 100th pass.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Klif4/100DoorsKata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Klif4/100DoorsKata/issues"
+  },
+  "homepage": "https://github.com/Klif4/100DoorsKata#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.5",
+    "jest": "^26.5.2",
+    "ts-jest": "^26.4.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  }
+}
