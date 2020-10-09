@@ -1,20 +1,19 @@
-import {Door} from "../src/Door";
-import {HundredDoors} from "../src/HundredDoors";
+import {DoorsVisitor} from "../src/DoorsVisitor";
+
+const doorsVisitor = new DoorsVisitor();
 
 test('100 closed doors', () => {
-    const hundredClosedDoors: Door[] = [];
+    const hundredClosedDoors: boolean[] = [];
     for (let i = 0; i < 100; i++) {
-        hundredClosedDoors.push(new Door(false));
+        hundredClosedDoors.push(false);
     }
-    const hundredDoors = new HundredDoors();
-    expect(hundredDoors.visit(0)).toStrictEqual(hundredClosedDoors)
+    expect(doorsVisitor.visitDoors(0)).toStrictEqual(hundredClosedDoors)
 })
 
 test('first visit must open all doors', () => {
-    const hundredOpenDoors: Door[] = [];
+    const hundredOpenDoors: boolean[] = [];
     for (let i = 0; i < 100; i++) {
-        hundredOpenDoors.push(new Door(true));
+        hundredOpenDoors.push(true);
     }
-    const hundredDoors = new HundredDoors();
-    expect(hundredDoors.visit(1)).toStrictEqual(hundredOpenDoors)
+    expect(doorsVisitor.visitDoors(1)).toStrictEqual(hundredOpenDoors)
 })
