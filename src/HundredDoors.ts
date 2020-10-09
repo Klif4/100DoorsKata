@@ -11,6 +11,9 @@ export class HundredDoors {
     };
 
     visit = (times: number): Door[] => {
-        return this.doors;
+        if (times === 0) {
+            return this.doors;
+        }
+        return this.doors.map(door => new Door(true))
     };
 }
