@@ -12,15 +12,10 @@ export class DoorsVisitor {
         if (times === 0) {
             return this.doors;
         }
-        if (times === 1) {
-            return this.openOrCloseCorrectDoors(this.doors, times)
-        }
         return this.openOrCloseCorrectDoors(this.visitDoors(times - 1), times)
     };
 
     private openOrCloseCorrectDoors = (doors: boolean[], correctDoors: number): boolean[] => {
        return doors.map((door, index) => (index + 1) % correctDoors === 0 ? !door : door)
     }
-
-
 }

@@ -24,7 +24,21 @@ test('second visit must close all second doors', () => {
         hundredDoors.push(true)
     }
     for (let i = 1; i<100; i+=2) {
-        hundredDoors[i] = false
+        hundredDoors[i] = !hundredDoors[i]
     }
     expect(doorsVisitor.visitDoors(2)).toStrictEqual(hundredDoors)
+})
+
+test('thirst visit must close all thirst doors', () => {
+    const hundredDoors: boolean[] = [];
+    for (let i = 0; i<100; i++) {
+        hundredDoors.push(true)
+    }
+    for (let i = 1; i<100; i+=2) {
+        hundredDoors[i] = !hundredDoors[i]
+    }
+    for (let i = 2; i<100; i+=3) {
+        hundredDoors[i] = !hundredDoors[i]
+    }
+    expect(doorsVisitor.visitDoors(3)).toStrictEqual(hundredDoors)
 })
