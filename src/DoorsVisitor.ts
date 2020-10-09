@@ -12,6 +12,14 @@ export class DoorsVisitor {
         if (times === 0) {
             return this.doors;
         }
-        return this.doors.map(door => true)
+        if (times === 1) {
+            return this.doors.map(door => true)
+        }
+        return this.doors.map(door => true).map((door, index) => {
+            if((index + 1) % times === 0) {
+                return !door
+            }
+            return door
+        })
     };
 }
