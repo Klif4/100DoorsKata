@@ -1,5 +1,7 @@
+import {door} from "./door";
+
 export class DoorsVisitor {
-    private readonly doors: boolean[];
+    private readonly doors: door[];
 
     constructor() {
         this.doors = [];
@@ -9,13 +11,9 @@ export class DoorsVisitor {
     };
 
     visitDoors = (times: number): boolean[] => {
-        if (times === 0) {
-            return this.doors;
-        }
-        return this.openOrCloseCorrectDoors(this.visitDoors(times - 1), times)
+        return times === 0 ?
+            this.doors :
+            this.visitDoors(times - 1)
+                .map((door, index) => (index + 1) % times === 0 ? !door : door);
     };
-
-    private openOrCloseCorrectDoors = (doors: boolean[], correctDoors: number): boolean[] => {
-       return doors.map((door, index) => (index + 1) % correctDoors === 0 ? !door : door)
-    }
 }
