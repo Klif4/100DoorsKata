@@ -10,7 +10,7 @@ export class DoorsVisitor {
         }
     };
 
-    visitDoors = (times: number): boolean[] => {
+    visitDoors = (times: number): door[] => {
         return times === 0 ?
             this.doors :
             this.visitDoors(times - 1)
