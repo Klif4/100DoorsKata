@@ -13,13 +13,14 @@ export class DoorsVisitor {
             return this.doors;
         }
         if (times === 1) {
-            return this.doors.map(door => true)
+            return this.openOrCloseCorrectDoors(this.doors, times)
         }
-        return this.doors.map(door => true).map((door, index) => {
-            if((index + 1) % times === 0) {
-                return !door
-            }
-            return door
-        })
+        return this.openOrCloseCorrectDoors(this.visitDoors(times - 1), times)
     };
+
+    private openOrCloseCorrectDoors = (doors: boolean[], correctDoors: number): boolean[] => {
+       return doors.map((door, index) => (index + 1) % correctDoors === 0 ? !door : door)
+    }
+
+
 }
